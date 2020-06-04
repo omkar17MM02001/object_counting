@@ -112,14 +112,14 @@ while True:
 			tracker.update(rgb)
 			pos = tracker.get_position()
 
-			startX = int(pos.left())
-			startY = int(pos.top())
-			endX = int(pos.right())
-			endY = int(pos.bottom())
+			startX = float(pos.left())
+			startY = float(pos.top())
+			endX = float(pos.right())
+			endY = float(pos.bottom())
 
 			rects.append((startX, startY, endX, endY))
 
-	cv2.line(frame, (0, H // 2), (W, H // 2), (0, 0, 255), 10)
+	cv2.line(frame, (0, (H //4)*3), (W, (H // 4)*3), (0, 0, 255), 10)
 
 	objects = ct.update(rects)
 
